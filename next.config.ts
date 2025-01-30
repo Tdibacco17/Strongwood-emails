@@ -9,6 +9,9 @@ const nextConfig: NextConfig = {
     BACKEND_URL: process.env.BACKEND_URL,
     SESSION_EMAIL: process.env.SESSION_EMAIL,
     SESSION_PASSWORD: process.env.SESSION_PASSWORD,
+    EMAIL_PASSWORD: process.env.EMAIL_PASSWORD,
+    EMAIL_USERNAME: process.env.EMAIL_USERNAME,
+    EMAIL_SERVICE: process.env.EMAIL_SERVICE,
   },
 };
 
