@@ -9,8 +9,21 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        dark: "var(--dark)",
+        light: "var(--light)",
+        lightHover: "var(--light-hover)",
+        cotton: "var(--cotton)",
+        gray1: "var(--bg-gray-1)",
+        gray2: "var(--bg-gray-2)",
+        gray3: "var(--bg-gray-3)",
+        gray4: "var(--bg-gray-4)",
+        gray5: "var(--bg-gray-5)",
+        muted: 'var(--muted)',
+        warning: "var(--warning)",
+        warning2: "var(--warning2)",
+      },
+      fontFamily: {
+        'geistSans': ['var(--font-geist-sans)']
       },
     },
   },
