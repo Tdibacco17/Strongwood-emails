@@ -13,6 +13,7 @@ export interface DataInterface {
     Telefono: number;
     Email: string;
     Enviado: number;
+    // id	enviado	desuscribir	nombre	telefono	direccion	email	estado	tipo_de_obra	etapa_de_ejecucion	pagina_web	instagram_facebook	estados_de_obra	preparacion_terreno	excavacion_cimentacion	estructura_albanileria	instalaciones	acabados_interiores_exteriores
 }
 
 const range = 'sheet1!A:E';
