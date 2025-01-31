@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# googleSheets credentials
+strongwood-test-a0edb49cabce.json
+service-account-base64.txt
