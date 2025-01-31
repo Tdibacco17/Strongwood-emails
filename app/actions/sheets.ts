@@ -12,7 +12,7 @@ export interface DataInterface {
     enviado:number;
     desuscribir:number;
     nombre:string,
-    telefono:number;
+    telefono:string;
     direccion:string,
     email:string;
     estado:string;
@@ -81,7 +81,7 @@ export const GetSheetData = async (): Promise<DataInterface[] | undefined> => {
                 enviado: (enviado && enviado !== "-") ? parseInt(enviado.trim()) : 0,
                 desuscribir: (desuscribir && desuscribir !== "-") ? parseInt(desuscribir.trim()) : 0,
                 nombre: nombre.trim() || "-",
-                telefono: (telefono && telefono !== "-") ? parseFloat(telefono.trim()) : 0,
+                telefono: (telefono && telefono !== "-") ? telefono.trim() : "-",
                 direccion: (direccion && direccion !== "-") ? direccion.trim() : "-",
                 email: email.trim() || "-",
                 estado: (estado && estado !== "-") ? estado.trim() : "-",
