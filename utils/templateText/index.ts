@@ -13,6 +13,6 @@ export default function templateText(id: number) {
         Saludos cordiales,
         Felipe Di Bacco
 
-        Si ya no desea recibir nuestros correos, puede darse de baja aquí: https://www.strongwood.com.ar/unsubscribe/${id}
+        Si ya no desea recibir nuestros correos, puede darse de baja aquí: https://www.strongwood.com.ar/unsubscribe?slug=${id}
         `;
 }

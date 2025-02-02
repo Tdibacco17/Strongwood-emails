@@ -22,7 +22,7 @@ export default function templateHtml(id: number) {
                         <p>Quedo a su disposición para coordinar una reunión o resolver cualquier consulta. Será un gusto poder colaborar con ustedes en este proyecto.</p>
                         <p>Saludos cordiales,</p>
                         <p><strong>Felipe Di Bacco</strong></p>
-                        <p>Si ya no desea recibir nuestros correos, puede <a href="https://www.strongwood.com.ar/unsubscribe/${id}" style="color: #007bff;">darse de baja aquí</a>.</p>
+                        <p>Si ya no desea recibir nuestros correos, puede <a href="https://www.strongwood.com.ar/unsubscribe?slug=${id}" style="color: #007bff;">darse de baja aquí</a>.</p>
                     </td>
                 </tr>
             </table>
