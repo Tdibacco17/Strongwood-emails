@@ -14,6 +14,8 @@
   --bg-gray-3: #2f2f2f;
   --bg-gray-4: #424242;
   --bg-gray-5: #323232D9;
+  --bg-gray-6: #26262a;
+  --bg-gray-6-hover: #26262a80;
   --cotton: #ECECEC;
   --muted: #A1A1AA;
   --warning: #b91c1c;
@@ -31,6 +33,8 @@
     --bg-gray-3: #2f2f2f;
     --bg-gray-4: #424242;
     --bg-gray-5: #323232D9;
+    --bg-gray-6: #26262a;
+    --bg-gray-6-hover: #26262a80;
     --cotton: #ECECEC;
     --muted: #A1A1AA;
     --warning: #b91c1c;

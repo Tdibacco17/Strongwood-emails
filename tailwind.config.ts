@@ -18,6 +18,8 @@ export default {
         gray3: "var(--bg-gray-3)",
         gray4: "var(--bg-gray-4)",
         gray5: "var(--bg-gray-5)",
+        gray6: "var(--bg-gray-6)",
+        gray6Hover: "var(--bg-gray-6-hover)",
         muted: 'var(--muted)',
         warning: "var(--warning)",
         warning2: "var(--warning2)",

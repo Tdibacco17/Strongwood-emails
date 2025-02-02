@@ -41,9 +41,9 @@ export default function LoginPageClient() {
             }, 4000)
         } else {
             setTimeout(() => {
-                setLoading(false);
                 router.push('/')
-            }, 2000)
+                return () => { setLoading(false); }
+            }, 2000);
         }
     }
 
@@ -89,7 +89,7 @@ export default function LoginPageClient() {
 
                     <div className="relative">
                         <button
-                            className="disabled:opacity-50 disabled:pointer-events-none w-full bg-light text-dark font-geistSans text-sm rounded-md h-9 flex justify-center items-center hover:bg-lightHover"
+                            className="disabled:hover:bg-light disabled:cursor-not-allowed disabled:opacity-50 w-full bg-light text-dark font-geistSans text-sm rounded-md h-9 flex justify-center items-center hover:bg-lightHover"
                             disabled={loading}
                             type="submit"
                         >

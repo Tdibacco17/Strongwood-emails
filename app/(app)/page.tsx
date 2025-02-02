@@ -1,4 +1,5 @@
-import { DataInterface, GetSheetData } from "../actions/sheets";
+import { SheetResponse } from "@/types/SheetTypes";
+import { GetSheetData,  } from "../actions/sheets";
 import HomePageClient from "./page.client";
 
 export default function Page() {
@@ -6,7 +7,7 @@ export default function Page() {
 }
 
 async function HomePageServer() {
-  const sheetsData: DataInterface[] | undefined = await GetSheetData();
+  const sheetsData: SheetResponse | undefined = await GetSheetData();
 
-  return <HomePageClient sheetsData={sheetsData} />
+  return <HomePageClient sheetsData={sheetsData} isDevMode={false} />
 }
