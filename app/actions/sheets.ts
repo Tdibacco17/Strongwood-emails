@@ -69,16 +69,18 @@ export const GetSheetData = async (): Promise<SheetResponse | undefined> => {
             if (persona.desuscrito === 1) {
                 // Si la persona está desuscrita, la agregamos al array de desuscritos
                 personasDesuscritas.push(persona);
-            } else if (emailArray.length > 0) {
-                if (persona.enviado === 0) {
-                    // Solo agregamos si "enviado" es 0
-                    personasSinEnviar.push(persona);
-                } else {
-                    // Si "enviado" es 1, lo movemos a personasEnviadas
-                    personasEnviadas.push(persona);
-                }
-            } else {
+            }
+
+            if (emailArray.length === 0) {
                 personasSinEmail.push({ ...persona, email: [] }); // Asignamos array vacío
+            } else if (persona.enviado === 0 && persona.desuscrito === 0) {
+                // Solo agregamos si "enviado" es 0 y no está desuscrito
+                personasSinEnviar.push(persona);
+            } 
+
+            if (persona.enviado === 1 || (persona.enviado === 1 && persona.desuscrito === 1)) {
+                // Si fue enviado o enviado y desuscrito, va a personasEnviadas
+                personasEnviadas.push(persona);
             }
         });
 
