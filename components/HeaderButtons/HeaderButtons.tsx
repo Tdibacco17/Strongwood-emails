@@ -58,14 +58,14 @@ export default function HeaderButtons({
                             Enviados
                         </button>
                         <button
+                            onClick={() => setSelectedGroup("desuscritas")}
+                            className={`text-sm font-medium font-geistSans py-1 px-3 whitespace-nowrap rounded-md ${selectedGroup === "desuscritas" ? "bg-dark" : "bg-transparent text-muted"}`}>
+                            Desuscritos
+                        </button>
+                        <button
                             onClick={() => setSelectedGroup("sinEmail")}
                             className={`text-sm font-medium font-geistSans py-1 px-3 whitespace-nowrap rounded-md ${selectedGroup === "sinEmail" ? "bg-dark" : "bg-transparent text-muted"}`}>
                             Sin Email
-                        </button>
-                        <button
-                            onClick={() => setSelectedGroup("desuscritas")}
-                            className={`text-sm font-medium font-geistSans py-1 px-3 whitespace-nowrap rounded-md ${selectedGroup === "desuscritas" ? "bg-dark" : "bg-transparent text-muted"}`}>
-                            Desuscritar
                         </button>
                     </div>
                     <button
