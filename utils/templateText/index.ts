@@ -1,18 +1,32 @@
 export default function templateText(id: number) {
     return `
-        Estimado BAEK,
+Estimados [constructora/estudio_arquitectura/inmobiliaria_comercializa],
 
-        Mi nombre es Felipe Di Bacco, soy el dueño de Strong Wood, una empresa de amoblamientos a medida para edificios, ubicada en Villa Devoto.
+Hemos visto que su obra en [dirección] está avanzando y queremos ofrecerle nuestras soluciones en mobiliario a medida.
+Nos especializamos en trabajar con desarrolladores, constructoras y estudios de arquitectura que buscan calidad, diseño y cumplimiento de plazos.
 
-        Contamos con un equipo grande y experimentado, incluyendo una diseñadora de interiores, lo que nos permite llevar adelante proyectos de cualquier escala. Ofrecemos soluciones personalizadas de alta calidad, optimizando la funcionalidad y estética de los espacios.
+Tenemos experiencia en equipamiento de obra, tanto de cocinas, placares, equipamiento para SUMS y espacios comunes.
 
-        Creemos que podemos ayudarles a mejorar el presupuesto de amoblamiento sin comprometer la calidad del trabajo.
+Brindamos también el servicio de diseño y producción de muebles para unidades modelo.
+Consúltanos sin obligación, tenemos los mejores precios y plazos del mercado.
 
-        Quedo a su disposición para coordinar una reunión o resolver cualquier consulta. Será un gusto poder colaborar con ustedes en este proyecto.
+Y accede a un 10% de descuento exclusivo nombrando esta campaña (CONST2025).
 
-        Saludos cordiales,
-        Felipe Di Bacco
+Muchas gracias.
 
-        Si ya no desea recibir nuestros correos, puede darse de baja aquí: https://www.strongwood.com.ar/unsubscribe?slug=${id}
-        `;
+¿Prefiere que lo contactemos directamente? Responda a este correo o comuníquese con nosotros a través de los datos proporcionados a continuación.
+
+---
+
+Felipe Di Bacco  
+Strongwood Furniture  
+strongwoodventas@gmail.com  
++5491171196506
+www.strongwood.com.ar  
+https://www.instagram.com/strongwood_ar
+
+---
+
+Si no desea recibir más estos correos, haga clic aquí para darse de baja: https://www.strongwood.com.ar/unsubscribe?slug=${id}
+    `;
 }

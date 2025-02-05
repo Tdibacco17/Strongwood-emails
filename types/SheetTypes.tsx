@@ -22,6 +22,14 @@ export interface DataInterface {
     estructura_albanileria: string;
     instalaciones: string;
     acabados_interiores_exteriores: string;
+    desarrolladora: string;
+    desarrolladora_numero: string;
+    constructora: string;
+    constructora_numero: string;
+    estudio_arquitectura: string;
+    estudio_arquitectura_numero: string;
+    inmobiliaria_comercializa: string;
+    inmobiliaria_comercializa_numero: string;
 }
 
 export type SheetResponse = {

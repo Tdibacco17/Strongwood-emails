@@ -31,7 +31,7 @@ export const SendEmail = async ({ id, emails }: { id: number, emails: string[] }
             from: process.env.EMAIL_USERNAME,
             to: emails,//process.env.EMAIL_USERNAME,
             replyTo: process.env.EMAIL_USERNAME,
-            subject: "Propuesta de amoblamiento - Strongwood", // "Soluciones de amoblamiento - Strongwood"
+            subject: "Soluciones en mobiliario para obras",
             html: contentHtml,
             text: contentText,
         });

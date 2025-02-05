@@ -3,7 +3,7 @@ import { sheets } from "@/lib/googleSheets";
 import { ApiResponse, DataInterface, SheetResponse, SheetRow, UpdateSheetParams } from "@/types/SheetTypes";
 import { revalidatePath } from "next/cache";
 
-const range = 'sheet1!A:R'; // COLUMANS DONDE ESTAN LOS DATOS EN EL SHEET
+const range = 'sheet1!A:Z'; // COLUMANS DONDE ESTAN LOS DATOS EN EL SHEET
 
 export const GetSheetData = async (): Promise<SheetResponse | undefined> => {
     const spreadsheetId = process.env.SPREADSHEET_ID;
@@ -29,10 +29,11 @@ export const GetSheetData = async (): Promise<SheetResponse | undefined> => {
             const paddedRow = [...row, ...Array(Math.max(0, 18 - row.length)).fill("-")];
 
             const [
-                id, enviado, desuscrito, nombre, telefono, direccion, email,
-                estado, tipo_de_obra, etapa_de_ejecucion, pagina_web, instagram_facebook,
-                estados_de_obra, preparacion_terreno, excavacion_cimentacion,
-                estructura_albanileria, instalaciones, acabados_interiores_exteriores
+                id, enviado, desuscrito, desarrolladora, desarrolladora_numero, constructora, constructora_numero, 
+                estudio_arquitectura, estudio_arquitectura_numero, inmobiliaria_comercializa, inmobiliaria_comercializa_numero,
+                nombre, telefono, direccion, email, estado, tipo_de_obra, etapa_de_ejecucion, pagina_web, instagram_facebook,
+                estados_de_obra, preparacion_terreno, excavacion_cimentacion, estructura_albanileria, instalaciones, 
+                acabados_interiores_exteriores
             ] = paddedRow;
 
             const parseNumber = (value: string) => {
@@ -64,6 +65,14 @@ export const GetSheetData = async (): Promise<SheetResponse | undefined> => {
                 estructura_albanileria: estructura_albanileria?.trim() || "-",
                 instalaciones: instalaciones?.trim() || "-",
                 acabados_interiores_exteriores: acabados_interiores_exteriores?.trim() || "-",
+                desarrolladora: desarrolladora?.trim() || "-",
+                desarrolladora_numero: desarrolladora_numero?.trim() || "-",
+                constructora: constructora?.trim() || "-",
+                constructora_numero: constructora_numero?.trim() || "-",
+                estudio_arquitectura: estudio_arquitectura?.trim() || "-",
+                estudio_arquitectura_numero: estudio_arquitectura_numero?.trim() || "-",
+                inmobiliaria_comercializa: inmobiliaria_comercializa?.trim() || "-",
+                inmobiliaria_comercializa_numero: inmobiliaria_comercializa_numero?.trim() || "-",
             };
 
             if (persona.desuscrito === 1) {
