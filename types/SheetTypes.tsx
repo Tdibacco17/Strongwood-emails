@@ -7,7 +7,7 @@ export interface DataInterface {
     id: number;
     enviado: number;
     desuscrito: number;
-    nombre: string,
+    nombre: string
     telefono: string;
     direccion: string,
     email: string[] | [];
@@ -16,12 +16,6 @@ export interface DataInterface {
     etapa_de_ejecucion: string;
     pagina_web: string;
     instagram_facebook: string;
-    estados_de_obra: string;
-    preparacion_terreno: string;
-    excavacion_cimentacion: string;
-    estructura_albanileria: string;
-    instalaciones: string;
-    acabados_interiores_exteriores: string;
     desarrolladora: string;
     desarrolladora_numero: string;
     constructora: string;
@@ -30,6 +24,7 @@ export interface DataInterface {
     estudio_arquitectura_numero: string;
     inmobiliaria_comercializa: string;
     inmobiliaria_comercializa_numero: string;
+    propietario: string
 }
 
 export type SheetResponse = {

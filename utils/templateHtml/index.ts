@@ -1,4 +1,4 @@
-export default function templateHtml(id: number) {
+export default function templateHtml(id: number, greeting: string, direccion: string): string {
     return `<!DOCTYPE html>
 <html lang="es">
 
@@ -32,13 +32,12 @@ export default function templateHtml(id: number) {
                         style="color: #000000; font-size: 22px; text-align: center; margin:30px 0px; padding: 0px 20px;">
                         Mobiliario a Medida para su Proyecto
                     </h3>
-                    <p style="font-size: 16px; padding: 0px 20px;">Estimados <strong>
-                            [constructora/estudio_arquitectura/inmobiliaria_comercializa]</strong>.
+                    <p style="font-size: 16px; padding: 0px 20px;">Estimados <strong>${greeting}</strong>.
                     </p>
 
                     <ul style="list-style-type: none; padding: 0px 20px; text-align: left;">
                         <li style="font-size: 16px; padding: 0px; margin: 0px;">
-                            Hemos visto que su obra en <strong>[dirección]</strong> está avanzando y queremos ofrecerle
+                            Hemos visto que ${direccion} está avanzando y queremos ofrecerle
                             nuestras
                             soluciones en mobiliario a medida.
                         </li>

@@ -93,7 +93,7 @@ export default function HomePageClient({ sheetsData, isDevMode }: { sheetsData: 
                     ]);
 
                     if (!isDevMode) {
-                        const result = await SendEmail({ id: card.id, emails: card.email });
+                        const result = await SendEmail({ person: card });
 
                         if (!result.success) {
                             setProgress(prevProgress => [

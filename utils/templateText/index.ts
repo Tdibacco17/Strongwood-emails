@@ -1,8 +1,8 @@
-export default function templateText(id: number) {
+export default function templateText(id: number, greeting: string, direccion: string): string {
     return `
-Estimados [constructora/estudio_arquitectura/inmobiliaria_comercializa],
+Estimados ${greeting},
 
-Hemos visto que su obra en [dirección] está avanzando y queremos ofrecerle nuestras soluciones en mobiliario a medida.
+Hemos visto que ${direccion} está avanzando y queremos ofrecerle nuestras soluciones en mobiliario a medida.
 Nos especializamos en trabajar con desarrolladores, constructoras y estudios de arquitectura que buscan calidad, diseño y cumplimiento de plazos.
 
 Tenemos experiencia en equipamiento de obra, tanto de cocinas, placares, equipamiento para SUMS y espacios comunes.

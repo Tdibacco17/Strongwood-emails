@@ -3,7 +3,7 @@ import { sheets } from "@/lib/googleSheets";
 import { ApiResponse, DataInterface, SheetResponse, SheetRow, UpdateSheetParams } from "@/types/SheetTypes";
 import { revalidatePath } from "next/cache";
 
-const range = 'sheet1!A:Z'; // COLUMANS DONDE ESTAN LOS DATOS EN EL SHEET
+const range = 'sheet1!A:U'; // COLUMANS DONDE ESTAN LOS DATOS EN EL SHEET
 
 export const GetSheetData = async (): Promise<SheetResponse | undefined> => {
     const spreadsheetId = process.env.SPREADSHEET_ID;
@@ -26,14 +26,30 @@ export const GetSheetData = async (): Promise<SheetResponse | undefined> => {
         const personasDesuscritas: DataInterface[] = [];
 
         filteredData.forEach(row => {
-            const paddedRow = [...row, ...Array(Math.max(0, 18 - row.length)).fill("-")];
+            const paddedRow = [...row, ...Array(Math.max(0, 21 - row.length)).fill("-")];
 
             const [
-                id, enviado, desuscrito, desarrolladora, desarrolladora_numero, constructora, constructora_numero, 
-                estudio_arquitectura, estudio_arquitectura_numero, inmobiliaria_comercializa, inmobiliaria_comercializa_numero,
-                nombre, telefono, direccion, email, estado, tipo_de_obra, etapa_de_ejecucion, pagina_web, instagram_facebook,
-                estados_de_obra, preparacion_terreno, excavacion_cimentacion, estructura_albanileria, instalaciones, 
-                acabados_interiores_exteriores
+                id, 
+                enviado, 
+                desuscrito, 
+                desarrolladora, 
+                desarrolladora_numero, 
+                constructora, 
+                constructora_numero,
+                estudio_arquitectura, 
+                estudio_arquitectura_numero, 
+                inmobiliaria_comercializa, 
+                inmobiliaria_comercializa_numero, 
+                propietario,
+                nombre, 
+                telefono, 
+                direccion, 
+                email, 
+                estado, 
+                tipo_de_obra, 
+                etapa_de_ejecucion, 
+                pagina_web, 
+                instagram_facebook
             ] = paddedRow;
 
             const parseNumber = (value: string) => {
@@ -59,12 +75,6 @@ export const GetSheetData = async (): Promise<SheetResponse | undefined> => {
                 etapa_de_ejecucion: etapa_de_ejecucion?.trim() || "-",
                 pagina_web: pagina_web?.trim() || "-",
                 instagram_facebook: instagram_facebook?.trim() || "-",
-                estados_de_obra: estados_de_obra?.trim() || "-",
-                preparacion_terreno: preparacion_terreno?.trim() || "-",
-                excavacion_cimentacion: excavacion_cimentacion?.trim() || "-",
-                estructura_albanileria: estructura_albanileria?.trim() || "-",
-                instalaciones: instalaciones?.trim() || "-",
-                acabados_interiores_exteriores: acabados_interiores_exteriores?.trim() || "-",
                 desarrolladora: desarrolladora?.trim() || "-",
                 desarrolladora_numero: desarrolladora_numero?.trim() || "-",
                 constructora: constructora?.trim() || "-",
@@ -73,6 +83,7 @@ export const GetSheetData = async (): Promise<SheetResponse | undefined> => {
                 estudio_arquitectura_numero: estudio_arquitectura_numero?.trim() || "-",
                 inmobiliaria_comercializa: inmobiliaria_comercializa?.trim() || "-",
                 inmobiliaria_comercializa_numero: inmobiliaria_comercializa_numero?.trim() || "-",
+                propietario: propietario?.trim() || "-"
             };
 
             if (persona.desuscrito === 1) {
@@ -82,10 +93,24 @@ export const GetSheetData = async (): Promise<SheetResponse | undefined> => {
 
             if (emailArray.length === 0) {
                 personasSinEmail.push({ ...persona, email: [] }); // Asignamos array vacío
-            } else if (persona.enviado === 0 && persona.desuscrito === 0) {
-                // Solo agregamos si "enviado" es 0 y no está desuscrito
+            }
+            // Para enviar, la persona debe cumplir:
+            // 1. No estar desuscrita.
+            // 2. No haber sido enviada (enviado === 0).
+            // 3. Tener al menos uno de los campos válidos para mensaje (no ser "-")
+            // Solo agregamos si "enviado" es 0 y no está desuscrito
+            else if (
+                persona.enviado === 0 &&
+                persona.desuscrito === 0 && (
+                    persona.inmobiliaria_comercializa !== "-" ||
+                    persona.desarrolladora !== "-" ||
+                    persona.estudio_arquitectura !== "-" ||
+                    persona.constructora !== "-" ||
+                    persona.propietario !== "-"
+                )
+            ) {
                 personasSinEnviar.push(persona);
-            } 
+            }
 
             if (persona.enviado === 1 || (persona.enviado === 1 && persona.desuscrito === 1)) {
                 // Si fue enviado o enviado y desuscrito, va a personasEnviadas
@@ -144,6 +169,7 @@ export const UpdateSheetData = async ({ cardsToProcess }: UpdateSheetParams): Pr
     }
 };
 
+// Funcion que no utilizamos en este proyecto.
 export const updateDesuscrito = async (id: number): Promise<ApiResponse> => {
     const spreadsheetId = process.env.SPREADSHEET_ID;
     if (!spreadsheetId) throw new Error(`SPREADSHEET_ID no está definido`);
