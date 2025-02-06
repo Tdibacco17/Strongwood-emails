@@ -18,9 +18,9 @@ export default function EmailTable({
     return (
         <div className={`px-8 h-full ${isSend ? "w-4/6 " : "w-full"} transition-[width] duration-300 relative`}>
             {getFilteredData().length > 0
-                ? getFilteredData().map((person) => {
+                ? getFilteredData().map((person, index) => {
                     return (
-                        <div key={person.id}
+                        <div key={`${person.id}-${index}`}
                             onClick={() => handleSelectCard(person)}
                             className={`px-2 py-6 flex flex-col gap-2 w-full border-b-[1px] border-gray6 ${selectedGroup === "sinEnviar" ? "cursor-pointer" : ""} ${selectedGroup === "sinEnviar" && selectedCards.some((p) => p.id === person.id) ? "bg-gray6Hover" : "hover:bg-gray6Hover"
                                 }`}>

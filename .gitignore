@@ -42,5 +42,5 @@ yarn-error.log*
 next-env.d.ts
 
 # googleSheets credentials
-strongwood-test-a0edb49cabce.json
+strongwood-account.json
 service-account-base64.txt
